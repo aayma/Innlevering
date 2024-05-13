@@ -1,0 +1,31 @@
+<div>
+    <input type="text">
+    <button>Søk</button>
+    <p id="Resultat"></p>
+</div>
+
+<script>
+    let ordEl = document.querySelector("input")
+    let knappEl=document.querySelector("button")
+    let resultatEl=document.querySelector("#resultat")
+
+    const disney =async() =>
+    {
+        const url ="api.disneyapi.dev/character?page=1&pageSize=7438"
+        const data =await fetch (url)
+        const json = await data.json()
+        let figur=json
+         
+        for (let i=0; i<figur.data.length;i++){
+            if(figur.data[i].name==ordEl.value) figur.data[i].name.toLowerCase()=ordEl.value}{
+                resultatEl.innerHTML=$(figur.data[i].name)<
+                <img src="$(figur.data[i].name)" height="314" width="226"></img>
+            }
+        }
+    
+    
+
+    knappEl.addEventListener("click", disney)
+
+</script>
+
